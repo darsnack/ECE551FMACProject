@@ -1,0 +1,4 @@
+module BoothDecoder8bit(input [2:0] a0, input [2:0] a1, input [2:0] a2,
+						input [2:0] a3, output [8:0] pp1, output [8:0] pp2,
+						output [8:0] pp3);
+						
