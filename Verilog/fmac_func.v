@@ -13,8 +13,6 @@ initial begin
 end
 
 multiplier multiplier(
-    .CLK(CLK),
-    .RESET(RESET),
     .x(x),
     .y(y),
     .multOut(prod));
