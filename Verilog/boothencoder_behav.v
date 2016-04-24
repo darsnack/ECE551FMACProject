@@ -15,4 +15,5 @@ always@(x2 or x1 or x0)
 		3'b111: action = 3'd0;
 		default: action = 3'd0;
 	endcase
-	
+
+endmodule
