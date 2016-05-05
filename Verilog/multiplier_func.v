@@ -35,10 +35,10 @@ module multiplier(input [7:0] x, input [7:0] y, output [15:0] multOut);
 	SignExtender partial3(.partialProduct(pp3),.ppNum(1'b0),.extendedPartialProduct(extendedpp3));
 	SignExtender partial4(.partialProduct(pp4),.ppNum(1'b0),.extendedPartialProduct(extendedpp4));
 
-	adder10bit adder0(.a({3'b001, extendedpp1}),.b({3'd0, extendedpp0}),.cin(1'b0),.cout(cout0),.s(s0));
-	adder10bit adder1(.a({3'b001, extendedpp2}),.b({2'd0, s0[12:2]}),.cin(cout0),.cout(cout1),.s(s1));
-	adder10bit adder2(.a({3'b001, extendedpp3}),.b({2'd0, s1[12:2]}),.cin(cout1),.cout(cout2),.s(s2));
-	adder10bit adder3(.a({3'b000, extendedpp4}),.b({2'd0, s2[12:2]}),.cin(cout2),.cout(cout3),.s(s3));
+	adder12bit adder0(.a({3'b001, extendedpp1}),.b({3'd0, extendedpp0}),.cin(1'b0),.cout(cout0),.s(s0));
+	adder12bit adder1(.a({3'b001, extendedpp2}),.b({2'd0, s0[12:2]}),.cin(cout0),.cout(cout1),.s(s1));
+	adder12bit adder2(.a({3'b001, extendedpp3}),.b({2'd0, s1[12:2]}),.cin(cout1),.cout(cout2),.s(s2));
+	adder12bit adder3(.a({3'b0000, extendedpp4}),.b({2'd0, s2[12:2]}),.cin(cout2),.cout(cout3),.s(s3));
 
 	assign multOut = {s3[7:0],s2[1:0],s1[1:0],s0[1:0],pp0[1:0]};
 
